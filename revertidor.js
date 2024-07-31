@@ -1,14 +1,18 @@
-const proov = '(olleh) world';
+let showFixedWord = document.getElementById('show_fixed_word');
 
 function fixWords(wordToFix){
     const RegularExpression = /\(.+?\)/g;
-    let parentesisWord = wordToFix.match(RegularExpression);
-    parentesisWord = parentesisWord[0].split("");
-    parentesisWord = parentesisWord.slice(1, -1);
-    parentesisWord = parentesisWord.reverse().join("");
-    return wordToFix.replace(RegularExpression, parentesisWord);
+    let verifyBrackets = RegularExpression.test(wordToFix);
+    if (verifyBrackets === true){
+        let bracketsWord = wordToFix.match(RegularExpression);
+        bracketsWord = bracketsWord[0].split("").slice(1, -1).reverse().join("");
+        let fixedWord = wordToFix.replace(RegularExpression, bracketsWord);
+        return showFixedWord.innerHTML = `Palabra original: ${wordToFix}, Palabra arreglada: ${fixedWord}`;
+    } else{
+        showFixedWord.innerHTML = '';
+        return alert('La palabra no contiene parentesís, ingrese una con parentesís.');
+    }
 }
-console.log(`Palabra original: ${proov}, Palabra arreglada: ${fixWords(proov)}`);
 
 //hasta ahora funciona unicamente si hay una sola palabra entre parentesis, hay que arreglarlo para que funcione con parentesis anidados y con más de un parentesis.
 

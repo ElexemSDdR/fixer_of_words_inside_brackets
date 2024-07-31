@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Revertidor</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Arreglador de palabras</title>
     </head>
     <body>
-        <script src="reverse.js"></script>
+        <h1>Arreglador de palabras</h1>
+        <p>El programa recibirá un texto que contenga una palabra entre parentesis la cual estará al revés, y la arreglará quitando los parentesis y dando vuelta la palabra</p>
+        <textarea id="word_with_brackets" rows="10"></textarea>
+        <button onclick="fixWords(word_with_brackets.value)">Arreglar palabra</button>
+        <h3 id="show_fixed_word"></h3>
+        <script src="revertidor.js"></script>
     </body>
 </html>
